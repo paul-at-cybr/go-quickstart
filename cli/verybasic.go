@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 
 	sh "github.com/paul-at-start/simple-help"
 )
@@ -14,8 +15,8 @@ const (
 
 var (
 	// Flags
-	count       int64  // how many refresh tokens to generate
-	favCarBrand string // location of the config file
+	count       int64  // how many sheep to count
+	favCarBrand string // your favorite car brand
 )
 
 func init() {
@@ -37,5 +38,14 @@ func main() {
 
 	if count <= 0 { // must count at least 1 sheep
 		help.Help() // output help
+		return
 	}
+
+	// Do the counting!
+	fmt.Print("Starting sheep count:\n\n")
+	for i := int64(0); i < count; i++ {
+		fmt.Printf("%d sheep in a %s\n", (i + 1), favCarBrand)
+	}
+
+	fmt.Print("\nDone\n\n")
 }
