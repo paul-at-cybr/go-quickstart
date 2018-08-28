@@ -7,12 +7,14 @@ import (
 	"github.com/BurntSushi/toml"
 )
 
+// config - defines the data that we expect to get from the toml config
 type config struct {
 	ICBMLaunchCode string
 	DefaultTargets []string
 }
 
 func main() {
+	// getConfig() does the config getting
 	conf, err := getConfig("./icbm-test.toml")
 
 	if err != nil {
@@ -20,6 +22,7 @@ func main() {
 		return
 	}
 
+	// success!
 	fmt.Println("\nGot config!")
 	fmt.Println("Launch code: " + conf.ICBMLaunchCode)
 
@@ -29,6 +32,8 @@ func main() {
 	}
 }
 
+// getConfig - reads config file and ships it to toml.Decode
+// then returns the result
 func getConfig(path string) (conf *config, err error) {
 	conf = &config{}
 

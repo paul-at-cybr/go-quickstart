@@ -1,2 +1,5 @@
-ICBMLaunchCode = "123boobies"
+# Toml-files are nice.
+# For a description of TOML config including examples and specification, check this out:
+# https://github.com/toml-lang/toml#readme
+ICBMLaunchCode = "123abc"
 DefaultTargets = ["Acidalia Planitia", "Mojave Desert", "Sea of Tranquility"]

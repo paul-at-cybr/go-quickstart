@@ -25,13 +25,15 @@ func init() {
 }
 
 func main() {
-	// override built-in --help with our own version
+	// simpleHelp works by overriding the usage/help function that's built into the flag package
+	// first instantiate:
 	help := &sh.SimpleHelp{
 		ProgramTitle:       programTitle,
 		ProgramDescription: programDescription,
 		Indentation:        15,
 	}
 
+	// then jam it into the CommandLine object. Tada!
 	flag.CommandLine.Usage = help.Help
 
 	flag.Parse()
